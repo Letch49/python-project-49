@@ -4,3 +4,6 @@
 
 ## brain-even example
 <a href="https://asciinema.org/a/581027?autoplay=1"><img src="https://asciinema.org/a/581027.png" width="836"/></a>
+
+## brain-calc example
+<a href="https://asciinema.org/a/581113?autoplay=1"><img src="https://asciinema.org/a/581113.png" width="836"/></a>
