@@ -15,3 +15,6 @@ package-install:
 
 package-install-venv:
 	python3 -m pip install --force-reinstall  dist/*.whl
+
+lint:
+	poetry run flake8 brain_games
