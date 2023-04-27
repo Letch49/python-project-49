@@ -20,7 +20,7 @@ def compute(num1: int, num2: int, operation) -> int:
 
 
 def get_correct(correct_answer, answer):
-    return str(answer) == str(correct_answer), answer
+    return str(answer) == str(correct_answer), correct_answer
 
 
 def make_answer(question, answer):

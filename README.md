@@ -7,3 +7,6 @@
 
 ## brain-calc example
 <a href="https://asciinema.org/a/581113?autoplay=1"><img src="https://asciinema.org/a/581113.png" width="836"/></a>
+
+## brain-gcd example
+<a href="https://asciinema.org/a/581116?autoplay=1"><img src="https://asciinema.org/a/581116.png" width="836"/></a>
