@@ -1,11 +1,17 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Cool task from hexlet.io"
 authors = ["roman"]
 packages = [
-  { include = "brain_games" },
+    { include = "brain_games" },
 ]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+repository = "https://github.com/Letch49/python-project-49"
+
 
 [tool.poetry.dependencies]
 python = "^3.9"

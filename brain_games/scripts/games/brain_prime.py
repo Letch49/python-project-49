@@ -29,8 +29,8 @@ def make_question():
 
 def main():
     game_name = 'brain-prime'
-    game_description = f"Answer {YES} if given number is prime. " \
-                       f"Otherwise answer {NO}."
+    game_description = f"Answer \"{YES}\" if given number is prime. " \
+                       f"Otherwise answer \"{NO}\"."
 
     game(game_name, game_description, make_question)
 
