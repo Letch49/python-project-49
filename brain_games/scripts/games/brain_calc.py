@@ -1,50 +1,43 @@
 import random
 from brain_games.engine.engine import game
+from brain_games.engine.const import (
+    PLUS,
+    MINUS,
+    MULTIPLY,
+    CALC_START_MIN,
+    CALC_START_MAX
+)
 
-plus = '+'
-minus = '-'
-multiply = '*'
 
-
-def get_operation(operations: tuple = (plus, minus, multiply)) -> str:
+def get_operation(operations: tuple = (PLUS, MINUS, MULTIPLY)) -> str:
     return random.choice(operations)
 
 
-def compute(num1: int, num2: int, operation) -> int:
-    if operation == plus:
+def get_math_result(num1: int, num2: int, operation) -> int:
+    if operation == PLUS:
         return num1 + num2
-    elif operation == minus:
+    elif operation == MINUS:
         return num1 - num2
-    elif operation == multiply:
+    elif operation == MULTIPLY:
         return num1 * num2
 
 
-def get_correct(correct_answer, answer):
-    return str(answer) == str(correct_answer), correct_answer
-
-
-def make_answer(question, answer):
-    num1, operation, num2 = question
-
-    correct_answer = compute(int(num1), int(num2), operation)
-    is_correct, result = get_correct(correct_answer, answer)
-
-    return is_correct, result
-
-
-def make_question() -> tuple:
+def make_question():
     operation = get_operation()
-    num1 = random.randint(1, 10)
-    num2 = random.randint(1, 10)
+    num1 = random.randint(CALC_START_MIN, CALC_START_MAX)
+    num2 = random.randint(CALC_START_MIN, CALC_START_MAX)
 
-    return num1, operation, num2
+    return {
+        'question_values': (num1, operation, num2),
+        'correct_value': get_math_result(num1, num2, operation)
+    }
 
 
-def main() -> None:
+def main():
     game_name = 'brain-even'
     game_description = "What is the result of the expression?"
 
-    game(game_name, game_description, make_question, make_answer)
+    game(game_name, game_description, make_question)
 
 
 if __name__ == '__main__':

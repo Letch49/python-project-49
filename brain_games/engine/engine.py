@@ -1,4 +1,5 @@
 import prompt
+from brain_games.engine.const import GAME_COUNTER
 
 
 def _welcome(game_name: str, game_description: str) -> str:
@@ -12,8 +13,8 @@ def _welcome(game_name: str, game_description: str) -> str:
     return username
 
 
-def _check_answer(answer, correct_answer, is_correct) -> bool:
-    if is_correct:
+def _check_answer(answer, correct_answer) -> bool:
+    if answer == correct_answer:
         print("Correct!")
         return True
 
@@ -25,26 +26,27 @@ def _check_answer(answer, correct_answer, is_correct) -> bool:
     return False
 
 
-def _play(username: str, make_question, make_answer, counter: int = 0) -> None:
-    if counter == 3:
+def _play(username: str, make_question, counter: int = 0) -> None:
+    if counter == GAME_COUNTER:
         print(f"Congratulations, {username}!")
         return
 
-    question: tuple = make_question()
-    print(f"Question: {' '.join([str(_) for _ in question])}")
+    question_result = make_question()
+    values = question_result['question_values']
+    correct_answer = str(question_result['correct_value'])
+
+    print(f"Question: {' '.join([str(_) for _ in values])}")
 
     answer = prompt.string("Your answer: ")
 
-    is_correct, correct_answer = make_answer(question, answer)
-
-    if not _check_answer(answer, correct_answer, is_correct):
+    if not _check_answer(answer, correct_answer):
         print(f"Let's try again, {username}!")
         return
 
-    _play(username, make_question, make_answer, counter + 1)
+    _play(username, make_question, counter + 1)
 
 
-def game(game_name, game_description, make_question, make_answer):
+def game(game_name, game_description, make_question):
     username = _welcome(game_name, game_description)
 
-    _play(username, make_question, make_answer)
+    _play(username, make_question)

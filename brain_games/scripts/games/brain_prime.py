@@ -1,8 +1,11 @@
 import random
 from brain_games.engine.engine import game
-
-yes: str = 'yes'
-no: str = 'no'
+from brain_games.engine.const import (
+    YES,
+    NO,
+    PRIME_START_MIN,
+    PRIME_START_MAX
+)
 
 
 def check_prime(n, j=2):
@@ -15,45 +18,21 @@ def check_prime(n, j=2):
     return check_prime(n, j + 1)
 
 
-def compute(num):
-    return check_prime(num)
+def make_question():
+    num = random.randint(PRIME_START_MIN, PRIME_START_MAX)
+
+    return {
+        'question_values': (num,),
+        'correct_value': YES if check_prime(num) else NO
+    }
 
 
-def get_correct(correct_answer, answer):
-    is_yes = answer == yes
-    is_no = answer == no
-
-    is_correct = (
-            correct_answer and is_yes
-            or
-            not correct_answer and is_no
-    )
-
-    result = yes if correct_answer else no
-
-    return is_correct, result
-
-
-def make_answer(question: tuple, answer):
-    num = question[0]
-    correct_answer = compute(num)
-
-    is_correct, result = get_correct(correct_answer, answer)
-    return is_correct, result
-
-
-def make_question() -> tuple:
-    num = random.randint(5, 7)
-
-    return (num,)
-
-
-def main() -> None:
+def main():
     game_name = 'brain-prime'
-    game_description = f"Answer {yes} if given number is prime. " \
-                       f"Otherwise answer {no}."
+    game_description = f"Answer {YES} if given number is prime. " \
+                       f"Otherwise answer {NO}."
 
-    game(game_name, game_description, make_question, make_answer)
+    game(game_name, game_description, make_question)
 
 
 if __name__ == '__main__':

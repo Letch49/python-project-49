@@ -1,0 +1,33 @@
+# GAME CONFIG
+GAME_COUNTER = 3
+
+YES: str = 'yes'
+NO: str = 'no'
+
+# even game
+EVEN_MIN = 1
+EVEN_MAX = 100
+
+# calc game
+CALC_START_MIN = 0
+CALC_START_MAX = 30
+PLUS = '+'
+MINUS = '-'
+MULTIPLY = '*'
+
+# gcd game
+GCD_MIN = 1
+GCD_MAX = 100
+
+# progression game
+PROGRESSION_START_MIN = 1
+PROGRESSION_START_MAX = 30
+
+PROGRESSION_DIFF_MIN = 1
+PROGRESSION_DIF_MAX = 20
+
+PROGRESSION_N = 10
+
+# prime game
+PRIME_START_MIN = 1
+PRIME_START_MAX = 20
