@@ -12,11 +12,11 @@ from brain_games.engine.const import (
 def arithmetic_progression(start, diff, n):
     if n == 1:
         return [start]
-    else:
-        prev = arithmetic_progression(start, diff, n - 1)
-        curr = prev[-1] + diff
-        prev.append(curr)
-        return prev
+
+    prev = arithmetic_progression(start, diff, n - 1)
+    curr = prev[-1] + diff
+    prev.append(curr)
+    return prev
 
 
 def make_question():
