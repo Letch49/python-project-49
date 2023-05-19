@@ -1,5 +1,5 @@
 import prompt
-from brain_games.engine.const import GAME_COUNTER
+from brain_games.const import GAME_COUNTER
 
 
 def _play(username: str, make_question, counter: int = 0) -> None:
@@ -7,15 +7,13 @@ def _play(username: str, make_question, counter: int = 0) -> None:
         print(f"Congratulations, {username}!")
         return
 
-    question_result = make_question()
-    values = question_result['question_values']
-    correct_answer = str(question_result['correct_value'])
+    values, correct_answer = make_question()
 
     print(f"Question: {' '.join([str(_) for _ in values])}")
 
     answer = prompt.string("Your answer: ")
 
-    if answer == correct_answer:
+    if answer == str(correct_answer):
         print('Correct')
     else:
         print(

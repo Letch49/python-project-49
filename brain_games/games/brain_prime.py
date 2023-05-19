@@ -1,5 +1,5 @@
 import random
-from brain_games.engine.const import (
+from brain_games.const import (
     YES,
     NO,
     PRIME_START_MIN,
@@ -20,7 +20,4 @@ def check_prime(n, j=2):
 def make_question():
     num = random.randint(PRIME_START_MIN, PRIME_START_MAX)
 
-    return {
-        'question_values': (num,),
-        'correct_value': YES if check_prime(num) else NO
-    }
+    return (num,), YES if check_prime(num) else NO

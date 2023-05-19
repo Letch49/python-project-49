@@ -1,5 +1,5 @@
 import random
-from brain_games.engine.const import (
+from brain_games.const import (
     YES,
     NO,
     EVEN_MIN,
@@ -14,7 +14,4 @@ def is_even(num: int) -> bool:
 def make_question():
     question = random.randint(EVEN_MIN, EVEN_MAX)
 
-    return {
-        'question_values': (question,),
-        'correct_value': YES if is_even(question) else NO
-    }
+    return (question,), YES if is_even(question) else NO

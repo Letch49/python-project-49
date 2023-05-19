@@ -1,5 +1,5 @@
 import random
-from brain_games.engine.const import (
+from brain_games.const import (
     PROGRESSION_START_MIN,
     PROGRESSION_START_MAX,
     PROGRESSION_DIFF_MIN,
@@ -30,7 +30,4 @@ def make_question():
     correct_value = result[hidden_index]
     result[hidden_index] = '..'
 
-    return {
-        'question_values': tuple(result),
-        'correct_value': correct_value
-    }
+    return tuple(result), correct_value
