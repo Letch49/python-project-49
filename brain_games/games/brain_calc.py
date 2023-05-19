@@ -1,5 +1,5 @@
 import random
-from brain_games.engine.const import (
+from brain_games.const import (
     PLUS,
     MINUS,
     MULTIPLY,
@@ -26,7 +26,4 @@ def make_question():
     num1 = random.randint(CALC_START_MIN, CALC_START_MAX)
     num2 = random.randint(CALC_START_MIN, CALC_START_MAX)
 
-    return {
-        'question_values': (num1, operation, num2),
-        'correct_value': get_math_result(num1, num2, operation)
-    }
+    return (num1, operation, num2), get_math_result(num1, num2, operation)
