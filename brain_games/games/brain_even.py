@@ -7,11 +7,14 @@ from brain_games.const import (
 )
 
 
-def is_even(num: int) -> bool:
+def is_even(num: int):
     return num % 2 == 0
 
 
 def make_question():
-    question = random.randint(EVEN_MIN, EVEN_MAX)
+    result = random.randint(EVEN_MIN, EVEN_MAX)
 
-    return (question,), YES if is_even(question) else NO
+    question = (result,)
+    answer = YES if is_even(result) else NO
+
+    return question, answer

@@ -13,7 +13,7 @@ def _play(username: str, make_question, counter: int = 0) -> None:
 
     answer = prompt.string("Your answer: ")
 
-    if answer == str(correct_answer):
+    if answer == correct_answer:
         print('Correct')
     else:
         print(

@@ -8,11 +8,7 @@ from brain_games.const import (
 )
 
 
-def get_operation(operations: tuple = (PLUS, MINUS, MULTIPLY)) -> str:
-    return random.choice(operations)
-
-
-def get_math_result(num1: int, num2: int, operation) -> int:
+def calculate_operation(num1, num2, operation):
     if operation == PLUS:
         return num1 + num2
     elif operation == MINUS:
@@ -22,8 +18,11 @@ def get_math_result(num1: int, num2: int, operation) -> int:
 
 
 def make_question():
-    operation = get_operation()
+    operation = random.choice((PLUS, MINUS, MULTIPLY))
     num1 = random.randint(CALC_START_MIN, CALC_START_MAX)
     num2 = random.randint(CALC_START_MIN, CALC_START_MAX)
 
-    return (num1, operation, num2), get_math_result(num1, num2, operation)
+    question = (num1, operation, num2)
+    answer = str(calculate_operation(num1, num2, operation))
+
+    return question, answer

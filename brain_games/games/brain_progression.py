@@ -8,11 +8,11 @@ from brain_games.const import (
 )
 
 
-def arithmetic_progression(start, diff, n):
+def calculate_arithmetic_progression(start, diff, n):
     if n == 1:
         return [start]
 
-    prev = arithmetic_progression(start, diff, n - 1)
+    prev = calculate_arithmetic_progression(start, diff, n - 1)
     curr = prev[-1] + diff
     prev.append(curr)
     return prev
@@ -25,9 +25,12 @@ def make_question():
 
     hidden_index = random.randint(0, n - 1)
 
-    result = arithmetic_progression(start, diff, n)
+    result = calculate_arithmetic_progression(start, diff, n)
 
-    correct_value = result[hidden_index]
+    value = result[hidden_index]
     result[hidden_index] = '..'
 
-    return tuple(result), correct_value
+    question = tuple(result)
+    answer = str(value)
+
+    return question, answer
