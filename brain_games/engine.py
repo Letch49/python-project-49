@@ -26,7 +26,7 @@ def _play(username: str, make_question, counter: int = 0) -> None:
     _play(username, make_question, counter + 1)
 
 
-def game(game_name, game_description, make_question):
+def make_game(game_name, game_description, make_question):
     print(f'{game_name}\n')
     print('brain-games')
     print('Welcome to the Brain Games!')

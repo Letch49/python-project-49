@@ -1,10 +1,10 @@
 from brain_games.const import EVEN_GAME_NAME, EVEN_GAME_DESCRIPTION
-from brain_games.engine import game
+from brain_games.engine import make_game
 from brain_games.games.brain_even import make_question
 
 
 def main():
-    game(EVEN_GAME_NAME, EVEN_GAME_DESCRIPTION, make_question)
+    make_game(EVEN_GAME_NAME, EVEN_GAME_DESCRIPTION, make_question)
 
 
 if __name__ == '__main__':
